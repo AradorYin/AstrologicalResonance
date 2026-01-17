@@ -1,6 +1,7 @@
 package io.github.aradoryin.astrologicalresonance;
 
 import io.github.aradoryin.astrologicalresonance.block.ModBlocks;
+import io.github.aradoryin.astrologicalresonance.item.ModCreativeModeTabs;
 import io.github.aradoryin.astrologicalresonance.item.ModItems;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.neoforged.api.distmarker.Dist;
@@ -25,6 +26,8 @@ public class AstrologicalResonance {
         modEventBus.addListener(this::commonSetup);
         NeoForge.EVENT_BUS.register(this);
 
+        ModCreativeModeTabs.register(modEventBus);
+
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
 
@@ -36,27 +39,13 @@ public class AstrologicalResonance {
     private void commonSetup(FMLCommonSetupEvent event) {
     }
 
-    // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
-        if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
-            event.accept(ModItems.AMETHYST_CRYSTAL);
-            event.accept(ModItems.CRYSTAL_DUST);
-            event.accept(ModItems.RESONATING_CRYSTAL);
-        }
-
-        if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
-            event.accept(ModBlocks.AMETHYST_CRYSTAL_BLOCK);
-            event.accept(ModBlocks.CRYSTAL_DUST_BLOCK);
-            event.accept(ModBlocks.RESONATING_CRYSTAL_BLOCK);
-        }
     }
 
-    // You can use SubscribeEvent and let the Event Bus discover methods to call
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event) {
     }
 
-    // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
     @EventBusSubscriber(modid = AstrologicalResonance.MOD_ID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     static class ClientModEvents {
         @SubscribeEvent
