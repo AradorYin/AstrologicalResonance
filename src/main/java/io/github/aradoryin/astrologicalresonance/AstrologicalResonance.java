@@ -1,5 +1,6 @@
 package io.github.aradoryin.astrologicalresonance;
 
+import io.github.aradoryin.astrologicalresonance.block.ModBlocks;
 import io.github.aradoryin.astrologicalresonance.item.ModItems;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.neoforged.api.distmarker.Dist;
@@ -25,6 +26,7 @@ public class AstrologicalResonance {
         NeoForge.EVENT_BUS.register(this);
 
         ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
 
         modEventBus.addListener(this::addCreative);
 
@@ -40,6 +42,12 @@ public class AstrologicalResonance {
             event.accept(ModItems.AMETHYST_CRYSTAL);
             event.accept(ModItems.CRYSTAL_DUST);
             event.accept(ModItems.RESONATING_CRYSTAL);
+        }
+
+        if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
+            event.accept(ModBlocks.AMETHYST_CRYSTAL_BLOCK);
+            event.accept(ModBlocks.CRYSTAL_DUST_BLOCK);
+            event.accept(ModBlocks.RESONATING_CRYSTAL_BLOCK);
         }
     }
 

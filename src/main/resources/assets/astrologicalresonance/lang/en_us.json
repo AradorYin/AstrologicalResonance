@@ -1,5 +1,9 @@
 {
   "item.astrologicalresonance.amethyst_crystal": "Amethyst Crystal",
   "item.astrologicalresonance.crystal_dust": "Crystal Dust",
-  "item.astrologicalresonance.resonating_crystal": "Resonating Crystal"
+  "item.astrologicalresonance.resonating_crystal": "Resonating Crystal",
+
+  "block.astrologicalresonance.amethyst_crystal_block": "Block of Amethyst Crystal",
+  "block.astrologicalresonance.crystal_dust_block": "Block of Crystal Dust",
+  "block.astrologicalresonance.resonating_crystal_block": "Block of Resonating Crystal"
 }
